@@ -152,3 +152,59 @@ const root: TreeNode = {
 }
 
 
+// Interfaces - DuckTyping
+
+interface PersonInt {
+    fullName: string,
+    email: string
+}
+
+let thomas: PersonInt = {
+    fullName: 'Thomas Bar',
+    email: 'foo@bar.bar'
+}
+
+console.log(thomas.fullName);
+
+
+// functions in interfaces
+
+interface Animal {
+    name: string;
+    age: number;
+    makeSound: (soundName: string) => void; // makeSound: (soundName: string): void;
+}
+
+class Dog implements Animal{
+    public name: string;
+    public age: number;
+
+    constructor(n: string, a: number) {
+        this.name = n;
+        this.age = a;
+    }
+
+    makeSound(soundName: string): void {
+        console.log(soundName);
+        
+    }
+}
+
+const doggie = new Dog('Barky', 2);
+doggie.makeSound('Bau');
+
+
+// Interface extends
+
+interface Person1 {
+    id: Id,
+    firstName: string,
+    lastName: string,
+    age: number
+};
+
+interface PersonProfile1 extends Person1 {
+    height: number,
+    nickname: string
+}
+
