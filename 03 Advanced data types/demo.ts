@@ -22,3 +22,10 @@ let contactPerson: {name: string} & {email: string} = {
 }
 
 console.log(showContact(contactPerson));
+
+
+// Literal type - limit the values for certain variable to only allowed ones
+let state: 'success' | 'error';
+state = 'success';
+
+
