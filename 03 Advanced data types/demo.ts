@@ -53,7 +53,8 @@ type PersonProfile = {
     height: number,
     nickname: string
 }
-// Intersection - completePerson must have all attributes from Person and personProfile
+// Intersection - completePerson must have all attributes from Person and personProfile; can have optional parameters, however need to check before use 
+// otherwise gives "undefined"
 type CompletePerson = Person & PersonProfile;
 
 let onePerson: Person = {
@@ -84,3 +85,26 @@ console.log(twoPerson);
 printPersonInfo(twoPerson);
 
 
+// keyof
+
+type Point = {
+    x: number,
+    y: number
+};
+
+// defining a point of type Point
+let originPoint: Point = {
+    x: 0,
+    y: 0
+}
+
+// type KeysOfPoint may only have keyof Point (x | y)
+type KeysOfPoint = keyof Point;
+
+function changeCoordinate(point: Point, coordinateName: KeysOfPoint, newValue: number) {
+    point[coordinateName] = newValue
+}
+
+changeCoordinate(originPoint, 'x', 2);
+
+console.log(originPoint);
