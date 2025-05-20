@@ -85,7 +85,7 @@ console.log(twoPerson);
 printPersonInfo(twoPerson);
 
 
-// keyof
+// keyof usage
 
 type Point = {
     x: number,
@@ -108,3 +108,47 @@ function changeCoordinate(point: Point, coordinateName: KeysOfPoint, newValue: n
 changeCoordinate(originPoint, 'x', 2);
 
 console.log(originPoint);
+
+
+//in usage - check if certain var has type
+
+type A = {name: string};
+type B = {age: number};
+let valu: A|B = {
+    name: 'ExampleName'
+}
+
+if ('age' in valu) console.log(valu.age);
+if ('name' in valu) console.log(valu.name);
+
+// ! Evaluating objects will give true, as they are both objects
+
+// type mapping "for key in keyof Point, make all keys optional"
+
+type PartialPoint = {
+    [K in keyof Point]?: Point[K]
+}
+
+// Recursive types - we can set types of attributes same as the parent
+
+type TreeNode = {
+    value: number,
+    leftChild?: TreeNode,
+    rightChild?: TreeNode
+}
+
+let leftLeaf: TreeNode = {
+    value: 5
+}
+
+let rightLead: TreeNode = {
+    value: 4
+}
+
+const root: TreeNode = {
+    value: 3,
+    leftChild: leftLeaf,
+    rightChild: rightLead
+}
+
+
