@@ -32,3 +32,55 @@ state = 'success';
 // Number literal - value can be only certain number
 let demoNumber: 1 | 2| 3;
 demoNumber = 2;
+
+
+// Type aliases - create own type which can be primitive
+type Id = number;
+
+function greet(humanID: Id) {
+    return humanID;
+};
+
+// Type person must have all these attributes - type of object
+type Person = {
+    id: Id,
+    firstName: string,
+    lastName: string,
+    age: number
+};
+
+type PersonProfile = {
+    height: number,
+    nickname: string
+}
+// Intersection - completePerson must have all attributes from Person and personProfile
+type CompletePerson = Person & PersonProfile;
+
+let onePerson: Person = {
+    id: 1,
+    firstName: 'fname',
+    lastName: 'lname',
+    age: 12
+};
+
+console.log(onePerson);
+
+
+let twoPerson: CompletePerson = {
+    id: 1,
+    firstName: 'nameone',
+    lastName: 'nametwo',
+    age: 33,
+    height: 170,
+    nickname: 'two'
+};
+
+function printPersonInfo(someone: CompletePerson): void {
+    console.log(`Person: ${someone.firstName} ${someone.lastName} Age: ${someone.age}`);
+    
+};
+
+console.log(twoPerson);
+printPersonInfo(twoPerson);
+
+
