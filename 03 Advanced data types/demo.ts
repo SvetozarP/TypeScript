@@ -29,3 +29,6 @@ let state: 'success' | 'error';
 state = 'success';
 
 
+// Number literal - value can be only certain number
+let demoNumber: 1 | 2| 3;
+demoNumber = 2;
