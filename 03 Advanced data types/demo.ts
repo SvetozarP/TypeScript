@@ -194,7 +194,7 @@ const doggie = new Dog('Barky', 2);
 doggie.makeSound('Bau');
 
 
-// Interface extends
+// Interface extends - same as intersection
 
 interface Person1 {
     id: Id,
@@ -206,5 +206,4 @@ interface Person1 {
 interface PersonProfile1 extends Person1 {
     height: number,
     nickname: string
-}
-
+};
