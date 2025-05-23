@@ -37,6 +37,8 @@ function isUser(user: any): user is User {
     const validId = (typeof id === 'number' && id > 100) ||
                     (typeof id === 'string' && id.length === 14);
 
+    const validUsername = (typeof username === 'string' && username.length >= 5 && username.length <= 10)
+
     const validPasswordHash =
         (typeof passwordHash === 'string' && passwordHash.length === 20) ||
         (Array.isArray(passwordHash) &&
@@ -47,8 +49,8 @@ function isUser(user: any): user is User {
 
     const validEmail = typeof email === 'undefined' || typeof email === 'string';
 
-    return typeof username === 'string' &&
-           validId &&
+    return validId &&
+           validUsername &&
            validPasswordHash &&
            validStatus &&
            validEmail;
