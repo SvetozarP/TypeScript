@@ -44,6 +44,7 @@ let user = {
     signupDate: new Date(2022, 1, 13),
     passwordHash: 'random'
 }
+
 let task1 = {
     status: <'Logged' | 'Started' | 'InProgress' | 'Done'>'Logged',
     title: 'Need assistance',
