@@ -93,3 +93,9 @@ class Circle1 extends Shape {
     }
 }
 
+class Circle2 extends Shape {
+    override draw() {console.log(`${super.draw()} + Draw circle`); // Explicit overriding
+    }
+}
+
+
