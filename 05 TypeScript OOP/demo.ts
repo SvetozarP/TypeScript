@@ -78,13 +78,18 @@ class Person2 {
 let person1: Greeter = new Person2('John'); // person1 is type Greeter and instance of class Person2
 console.log(person1.greet());
 
-// Method override - Circle overrides draw() from Shape
+// Method override - Circle overrides draw() from Shape (implicit override) - change of noImplicitOverride in tsconfig can forbid implicit override and leave
+// only explicit overrides
 class Shape {
     draw(): void {console.log('Shape has been drawn');
     }
 }
 class Circle extends Shape {
     draw() {console.log('This is a circle');
+    }
+}
+class Circle1 extends Shape {
+    draw() {console.log(`${super.draw()} + Draw circle`); // calls the parent method and overrides
     }
 }
 
