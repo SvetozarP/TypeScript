@@ -214,3 +214,11 @@ let animal = new Animal3('Martha');
 // animal.name = 'Thomas'; - cannot modify readonly property
 
 
+// Modifiers can be combined, order -> Access modifiers -> abstract/static -> readonly
+
+abstract class Machine {
+    protected abstract readonly model: string;
+    public static readonly machineCount: number;
+    // static abstract id: string; - Cannot have static and abstract
+}
+
