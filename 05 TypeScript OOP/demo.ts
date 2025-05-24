@@ -66,3 +66,15 @@ class Dog2 extends Animal1 {
 let dog1 = new Dog2();
 dog1.makesound(); // barks, inherited from Animal1
 
+
+// Polymorphism - objects can have parts of their functionality. Need structure and types to be compatible
+
+type Greeter = { greet(): string; }
+class Person2 {
+    constructor(public name: string){}
+    greet() {return `${this.name} says hello`};
+}
+
+let person1: Greeter = new Person2('John'); // person1 is type Greeter and instance of class Person2
+console.log(person1.greet());
+
