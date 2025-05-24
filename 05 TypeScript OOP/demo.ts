@@ -129,3 +129,22 @@ let obj: Barker = {bark() {return '20'}} // valid declaration
 // obj.bark() // error - Interface restricting, bark should have person
 console.log(obj.bark(person2)); // valid - person has been passed and matches the interface signature, regardless that bark method of object does not accept arguments.
 
+// getters and setters
+
+const fullNameMaxLength = 10;
+class Employee {
+    private _fullName!: string; // Definite assertion - guarantees that this var/property will be assigned
+
+    get fullName(): string { // getter - accesses private property inside the class
+        return this._fullName;
+    }
+
+    set fullName(newName: string) { // setter with validation to ensure newName does not exceed namelength
+        if (newName && newName.length > fullNameMaxLength) {
+            throw new Error('fullName has a max length of ' + fullNameMaxLength);
+        }
+
+        this._fullName = newName;
+    }
+}
+
