@@ -148,3 +148,69 @@ class Employee {
     }
 }
 
+// Access modifiers - public, protected, private. Public = accessible from everywhere.
+
+class Animal2 {
+    constructor(protected _name: string){} // shorthand for declaration within constructor
+}
+
+class Bear extends Animal2 {
+    roar() {return `${this._name} roars`} // able to access _name as it is protected and Bear inherits Animal. Cannot access private.
+}
+
+
+// Additional modifiers - abstract, static and readonly
+
+class Manufacturing {
+    public maker: string;
+    public model: string;
+    public static vehiclesCount = 0; // Class method
+
+    constructor( maker: string, model: string ){
+        this.maker = maker;
+        this.model = model;
+    }
+
+    createVehicle() {
+        let calls = ++Manufacturing.vehiclesCount; // increments times function is called in the class, not in the instance. All instances know about this.
+        return `createVehicle called: ${calls} times`;
+    }
+}
+
+// Abstract class cannot be instantiated directly, they can be inherited only. Can be applied to properties and methods too.
+
+abstract class Departmnet {
+    public depName: string;
+    constructor(n: string) {this.depName = n;}
+    abstract sayHello(): void;
+}
+
+class Engineering extends Departmnet {
+    constructor(depName: string, public employee: string) {
+        super(depName);
+    }
+
+    sayHello() { // Must implement abstract methods
+        return `${this.employee} of ${this.depName} department says hi!`;
+    }
+}
+
+// let dep = new Departmnet('Test') Department cannot be instantiated - it is abstract
+
+let engineering = new Engineering('Engineers', 'Josh')
+console.log(engineering.sayHello()); // inherited department and implemented abstract method
+
+
+// Readonly protects value from being modified
+
+class Animal3 {
+    readonly name: string;
+    constructor(n: string) {
+        this.name = n;
+    }
+}
+
+let animal = new Animal3('Martha');
+// animal.name = 'Thomas'; - cannot modify readonly property
+
+
