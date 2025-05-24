@@ -99,3 +99,23 @@ class Circle2 extends Shape {
 }
 
 
+// Method overload
+
+class Person3 {
+    greet(num: number): void;
+    greet (fName: string, lName: string): void;
+    greet (a: number | string, b?: string): void {
+        console.log(
+            typeof a === 'number'
+            ? `Your number: ${a}`
+            : `Hello ${a} ${b}`
+        );
+        
+    }
+}
+
+let person2 = new Person3();
+person2.greet('John', 'Doe') // Greet person - strings for a and b
+person2.greet(13) // Display number 13, as only a assigned as number
+// person2.greet('John') - error, no such signature, because if a is string, we need to have b - row 106
+
