@@ -5,7 +5,7 @@ abstract class Shape {
         this.color = color
     }
 
-    abstract getArea(): number
+    public abstract getArea(): number
 }
 
 
