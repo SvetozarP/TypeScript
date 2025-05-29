@@ -1,4 +1,4 @@
-class Person4 {
+class Person {
     private firstName: string
     private lastName: string
     private age: number
@@ -15,5 +15,5 @@ class Person4 {
     }
 }
 
-const person = new Person4("John", "Doe", 30);
+const person = new Person("John", "Doe", 30);
 console.log(person.introduce());

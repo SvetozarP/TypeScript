@@ -1,4 +1,4 @@
 .vscode
-tsconfig.json
+tsconfig*.json
 node_modules
 package*.json

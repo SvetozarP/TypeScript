@@ -1,12 +1,12 @@
-interface Animal4 {
-    makeSound1(): string
+interface Animal {
+    makeSound(): string
 }
 
-class Dog3 implements Animal4 {
-    makeSound1(): string {
+class Dog implements Animal {
+    makeSound(): string {
         return `Woof`
     }
 }
 
-const dog = new Dog3();
-console.log(dog.makeSound1());
+const dog = new Dog();
+console.log(dog.makeSound());
