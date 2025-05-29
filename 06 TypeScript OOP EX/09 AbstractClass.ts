@@ -17,7 +17,7 @@ class Circle extends Shape {
         this.radius = radius
     }
 
-    public getArea(): number {
+    public override getArea(): number {
         return Math.PI * this.radius * this.radius
     }
 }
@@ -32,7 +32,7 @@ class Rectangle extends Shape {
         this.sideB = sideB
     }
 
-    public getArea(): number {
+    public override getArea(): number {
         return this.sideA * this.sideB
     }
 }
