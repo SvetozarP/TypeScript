@@ -3,7 +3,7 @@ interface Animal {
 }
 
 class Dog implements Animal {
-    makeSound(): string {
+    public makeSound(): string {
         return `Woof`
     }
 }

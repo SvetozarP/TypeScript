@@ -5,7 +5,7 @@ abstract class Vehicle {
         this.brand = brand
     }
 
-    drive(): string {
+    public drive(): string {
         return `Driving a ${this.brand}`
     }
 }
@@ -18,7 +18,7 @@ class Car extends Vehicle {
         this.model = model
     }
 
-    override drive(): string {
+    public override drive(): string {
         return `Driving a ${this.brand} ${this.model}`
     }
 }
