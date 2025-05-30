@@ -9,7 +9,7 @@ class Product {
       throw new Error("Product name must be at least 1 character long.");
     }
     if (price <= 0) {
-      throw new Error("Price must be greater than 0.");
+      throw new Error("Price must be positive.");
     }
 
     Product._productCount++;
@@ -36,7 +36,7 @@ class Product {
 
   set price(value: number) {
     if (value <= 0) {
-      throw new Error("Price must be greater than 0.");
+      throw new Error("Price must be positive.");
     }
     this._price = value;
   }
@@ -74,3 +74,9 @@ inventory.addProduct(product1);
 inventory.addProduct(product2);
 
 console.log(inventory.listProducts());
+
+
+// Product.productCount = 10; - error - cannot assign
+// const product = new Product("", 800);
+// const product3 = new Product("Phone", 0);
+// product.id = 5; - error ID
