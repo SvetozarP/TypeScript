@@ -23,9 +23,11 @@ const user = new User("Martin");
 user.username = "johnDoe";
 console.log(user.username);
 
-const user1 = new User("jo");
+// Errors - validation for length
 
-const user2 = new User("Martin");
-user.username = "Do";
-console.log(user.username);
+// const user1 = new User("jo");
+
+// const user2 = new User("Martin");
+// user.username = "Do";
+// console.log(user.username);
 
