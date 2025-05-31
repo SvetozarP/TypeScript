@@ -16,3 +16,24 @@ console.log(firstElNum);
 // TS Inference - no need to specify exact type param on function. Inferred by the input.
 const firstElBool = getFirstElement([true, false])
 console.log(firstElBool);
+
+
+// Generic function with multiple types - the params must match exact types. They can also be the same type.
+
+function makeTuple<T, U>(el1: T, el2: U): [T, U] {
+    return [el1, el2]
+}
+
+const tuple1 = makeTuple('One', 'Two')
+console.log(tuple1);
+
+const tuple2 = makeTuple(1, 2)
+console.log(tuple2);
+
+const tuple3 = makeTuple<string, number>('one', 1)
+console.log(tuple3);
+
+const tuple4 = makeTuple<number, boolean>(2, false)
+console.log(tuple4);
+
+
