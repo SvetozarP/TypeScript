@@ -60,4 +60,17 @@ const message2: Message<{ text: string, timestamp: number }> = {
 };
 
 
+// Generics Type constraints - extends means that the attribute must have at least id
+
+function logItemID<T extends {id: number}>(item: T): void {
+    console.log(item);
+}
+
+// logItemID('One'); - error, not object, doesn't have ID
+// logItemID(23);
+// logItemID({name: 'Two'});
+logItemID({id: 2, name: 'Two', age: 30}); // correct - is object has at least ID
+logItemID({ id: 3, email: 'foo@bar.com'}) // correct - is object and has at least ID
+
+
 
