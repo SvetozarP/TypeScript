@@ -171,3 +171,33 @@ type PartialUser = MakeOptionalProps<User>
 
 type PartialPoint = MakeOptionalProps<Point>
 
+
+// Conditional types
+
+type Employee = {
+    name: string;
+    age: number;
+    salary: number;
+}
+
+
+type Product = {
+    title: string;
+    price: number;
+    inStock: boolean;
+    rating: number;
+}
+
+type GetNumericKeys<T> = {
+    [K in keyof T]: T[K] extends number ? K : never;
+}[keyof T]
+
+// name: never; age: 'age'; salary: 'salary'
+
+type EmployeeNumericKeys = GetNumericKeys<Employee>;
+
+// types only for numeric types are extracted
+
+type ProductNumericKeys = GetNumericKeys<Product>;
+
+
