@@ -146,3 +146,28 @@ const userResponse1 = new ApiResponse(true, ['One', 'Two', 'Three'], null)
 console.log(userResponse1.getResult());
 // const userResponse2 = new ApiResponse(false, null, 'Unknown error')
 // console.log(userResponse2.getResult());
+
+
+// Mapped types using generics
+
+type User = {
+    id: number;
+    username: string;
+    email: string;
+}
+
+type Point = {
+    x: number;
+    y: number;
+}
+
+// makes all props optional
+
+type MakeOptionalProps<T> = {
+    [K in keyof T]?: T[K]
+}
+
+type PartialUser = MakeOptionalProps<User>
+
+type PartialPoint = MakeOptionalProps<Point>
+
