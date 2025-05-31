@@ -73,4 +73,43 @@ logItemID({id: 2, name: 'Two', age: 30}); // correct - is object has at least ID
 logItemID({ id: 3, email: 'foo@bar.com'}) // correct - is object and has at least ID
 
 
+// Class generics
+
+class StorageBox<T>{
+    items: T[]
+
+    constructor(initialItems: T[]) {
+        this.items = initialItems
+    }
+
+    getAllItems(): T[] {
+        return this.items;
+    }
+
+    getFirstItem(): T {
+        return this.items[0];
+    }
+    
+    addItem(newItem: T): void {
+        this.items.push(newItem);
+    }
+
+    reverseItems(): void {
+        this.items.reverse();
+    }
+
+    removeItem(item: T): void {
+        const index = this.items.indexOf(item);
+
+        if (index > -1) {
+            this.items.splice(index, 1);
+        }
+    }
+}
+
+
+const box1 = new StorageBox<string>(['One', 'Two']);
+box1.addItem('Three');
+box1.addItem('Four');
+box1.getAllItems();
 
