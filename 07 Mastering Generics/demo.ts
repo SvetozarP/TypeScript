@@ -37,3 +37,27 @@ const tuple4 = makeTuple<number, boolean>(2, false)
 console.log(tuple4);
 
 
+// Generic interfaces
+
+interface Message<T> {
+    sender: string
+    recipient: string
+    data: T
+};
+
+const message1: Message<string> = {
+    sender: 'One',
+    recipient: 'Two',
+    data: 'Hello'
+}
+
+// Leave type param for the data attribute, and then define upon implementation. Can be done with type alias type MessageDataType = { text: string, timestamp: number }
+
+const message2: Message<{ text: string, timestamp: number }> = {
+    sender: 'Two',
+    recipient: 'Two',
+    data: { text: 'Hello', timestamp: 23435345 }
+};
+
+
+
