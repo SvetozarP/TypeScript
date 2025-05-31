@@ -113,3 +113,36 @@ box1.addItem('Three');
 box1.addItem('Four');
 box1.getAllItems();
 
+
+// Two types of Generics
+
+class ApiResponse<T, U, V> {
+    isSuccessful: T
+    data: U | null
+    error: V | null
+
+    constructor( success: T, data: U | null, error: V | null){
+        this.isSuccessful = success;
+        this.data = data;
+        this.error = error;
+    }
+
+    getResult(): U {
+
+        if (!this.isSuccessful || this.data === null) {
+            throw new Error(String(this.error))
+        }
+
+        return this.data
+    }
+
+}
+
+// within classes, there is Inference. This does not exist with interfaces
+
+const userResponse = new ApiResponse(true, 'The request is successfull', null)
+console.log(userResponse.getResult());
+const userResponse1 = new ApiResponse(true, ['One', 'Two', 'Three'], null)
+console.log(userResponse1.getResult());
+// const userResponse2 = new ApiResponse(false, null, 'Unknown error')
+// console.log(userResponse2.getResult());
