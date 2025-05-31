@@ -13,3 +13,6 @@ const firstElNum = getFirstElement<number>([1, 2, 3])
 console.log(firstElNum);
 
 
+// TS Inference - no need to specify exact type param on function. Inferred by the input.
+const firstElBool = getFirstElement([true, false])
+console.log(firstElBool);
