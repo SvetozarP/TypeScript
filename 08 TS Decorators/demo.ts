@@ -1,54 +1,54 @@
-// Legacy Class Decorator
-function LogClass(constructor: Function) {
-  console.log(`Class decorated: ${constructor.name}`);
-}
+// // Legacy Class Decorator
+// function LogClass(constructor: Function) {
+//   console.log(`Class decorated: ${constructor.name}`);
+// }
 
-// Legacy Property Decorator
-function LogProperty(target: any, propertyKey: string) {
-  console.log(`Property decorated: ${propertyKey}`);
-}
+// // Legacy Property Decorator
+// function LogProperty(target: any, propertyKey: string) {
+//   console.log(`Property decorated: ${propertyKey}`);
+// }
 
-// Legacy Accessor Decorator
-function LogAccessor(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-  console.log(`Accessor decorated: ${propertyKey}`);
-}
+// // Legacy Accessor Decorator
+// function LogAccessor(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+//   console.log(`Accessor decorated: ${propertyKey}`);
+// }
 
-// Legacy Method Decorator
-function LogMethod(target: any, methodKey: string, descriptor: PropertyDescriptor) {
-  console.log(`Method decorated: ${methodKey}`);
-}
+// // Legacy Method Decorator
+// function LogMethod(target: any, methodKey: string, descriptor: PropertyDescriptor) {
+//   console.log(`Method decorated: ${methodKey}`);
+// }
 
-// Legacy Parameter Decorator
+// // Legacy Parameter Decorator
 
-function LogParameter(target: any, methodName: string, parameterIndex: number) {
-    console.log(`Method Name: ${methodName} and Parameter Index: ${parameterIndex}`);
-}
+// function LogParameter(target: any, methodName: string, parameterIndex: number) {
+//     console.log(`Method Name: ${methodName} and Parameter Index: ${parameterIndex}`);
+// }
 
-@LogClass
-class User {
+// @LogClass
+// class User {
 
-    @LogProperty
-    name: string;
+//     @LogProperty
+//     name: string;
 
-    private _email!: string;
+//     private _email!: string;
 
-    constructor(name: string, email: string) {
-        this.name = name;
-        this.email = email;
-    }
+//     constructor(name: string, email: string) {
+//         this.name = name;
+//         this.email = email;
+//     }
 
-    @LogAccessor
-    get email() {
-        return this._email;
-    }
+//     @LogAccessor
+//     get email() {
+//         return this._email;
+//     }
 
-    set email(value: string) {
-        this._email = value;
-    }
+//     set email(value: string) {
+//         this._email = value;
+//     }
 
-    @LogMethod
-    getInfo(@LogParameter condensed: boolean): string {
-        return condensed ? `Person ${this.name}` : `Person ${this.name} with email ${this.email}`
-    }
+//     @LogMethod
+//     getInfo(@LogParameter condensed: boolean): string {
+//         return condensed ? `Person ${this.name}` : `Person ${this.name} with email ${this.email}`
+//     }
 
-}
+// }
