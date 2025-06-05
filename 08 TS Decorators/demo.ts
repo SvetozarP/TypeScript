@@ -18,6 +18,12 @@ function LogMethod(target: any, methodKey: string, descriptor: PropertyDescripto
   console.log(`Method decorated: ${methodKey}`);
 }
 
+// Legacy Parameter Decorator
+
+function LogParameter(target: any, methodName: string, parameterIndex: number) {
+    console.log(`Method Name: ${methodName} and Parameter Index: ${parameterIndex}`);
+}
+
 @LogClass
 class User {
 
@@ -41,7 +47,7 @@ class User {
     }
 
     @LogMethod
-    getInfo(condensed: boolean): string {
+    getInfo(@LogParameter condensed: boolean): string {
         return condensed ? `Person ${this.name}` : `Person ${this.name} with email ${this.email}`
     }
 
