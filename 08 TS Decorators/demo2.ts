@@ -19,6 +19,32 @@ function ValidateStringAccessor(target: any, propertyName: string, descriptor: P
     return descriptor // good practice
 }
 
+function DepricatedMethod(target: any, methodName: string, descriptor: PropertyDescriptor) {
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function(...args: any[]) {
+        console.log(`Caution! Method ${methodName} is depricated! Consider using another one`);
+        return originalMethod.apply(this, args); // when decorating methods, this needs to be returned
+    }
+
+    return descriptor
+}
+
+// Factory decorator
+
+function DepricatedMethod1(message: string = 'Depricated method') {
+    return function (target: any, methodName: string, descriptor: PropertyDescriptor) {
+        const originalMethod = descriptor.value;
+
+        descriptor.value = function(...args: any[]) {
+            console.log(`Caution! ${message}`);
+            return originalMethod.apply(this, args); // when decorating methods, this needs to be returned
+        }
+
+        return descriptor
+    }
+}
+
 // @FreezeClass
 class User {
 
@@ -42,6 +68,7 @@ class User {
         this._email = value;
     }
 
+    @DepricatedMethod1('Method is Depricated')
     getInfo(condensed: boolean): string {
         return condensed ? `Person ${this.name}` : `Person ${this.name} is ${this.age} old with email ${this.email}`
     }
@@ -53,5 +80,7 @@ const user2 = new User('two', 30, 'two@bar.com')
 
 // const user3 = new User('one', 23, 'on') - error due to validation from the decorator
 
-console.log(Object.isFrozen(User));
-console.log(Object.isFrozen(User.prototype));
+// console.log(Object.isFrozen(User));
+// console.log(Object.isFrozen(User.prototype));
+
+console.log(user1.getInfo(true));
