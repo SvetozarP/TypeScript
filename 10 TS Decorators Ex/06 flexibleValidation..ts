@@ -35,7 +35,7 @@ function validatePassword(pattern: RegExp) {
         const origSetter = descriptor.set;
         descriptor.set = function(val: string) {
             if (!val.match(pattern)) {
-                throw new Error(`Error: password needs to match ${pattern.toString()}`);
+                throw new Error(`Error: password needs to match ${pattern}`);
             }
             
             return origSetter?.call(this, val);
