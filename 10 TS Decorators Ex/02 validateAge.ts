@@ -8,7 +8,7 @@ function AgeValidator(target: any, propertyName: string, descriptor: PropertyDes
         origSetter?.call(this, val)
     }
 
-    return descriptor
+    return descriptor;
 }
 
 class Age {
