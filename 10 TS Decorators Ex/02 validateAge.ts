@@ -1,11 +1,11 @@
-function AgeValidator(target: any, methodName: string, descriptor: PropertyDescriptor) {
-    const origMethod = descriptor.set
+function AgeValidator(target: any, propertyName: string, descriptor: PropertyDescriptor) {
+    const origSetter = descriptor.set
     descriptor.set = function(val: number) {
         if (val < 1 || val > 200 || !val) {
             throw new Error('Error: Age must be between 1 and 200')
         }
 
-        origMethod?.call(this, val)
+        origSetter?.call(this, val)
     }
 
     return descriptor
