@@ -4,7 +4,7 @@ import { Language } from "./contracts/language";
 import { LanguageMessageEncoder } from "./languageMessageEncoder";
 import { LowercaseCharactersOnlyLanguage } from "./contracts/implemented/lowercaseCharactersOnlyLanguage";
 import { PartialMessageEncoder } from "./contracts/implemented/partialMessageEncoder";
-import { DNACodeLanguage } from "./languageMessageEncoder";
+import { DNACodeLanguage } from "./dnaCodeLanguage";
 
 // Example 1
 
