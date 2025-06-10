@@ -1,7 +1,7 @@
 import { HtmlRenderer } from "../utils/html";
-import { PostsService } from "../services/postsService";
+import { services } from "../services/services";
 
-const postsService = new PostsService();
+
 
 export async function createPostView(): Promise<void> {
     const template = `
@@ -37,7 +37,7 @@ async function createPost(e: Event) {
     const title = formData.get('title')as string;
     const body = formData.get('body') as string;
 
-    const result = await postsService.create({
+    const result = await services.postsService.create({
         userId: 1,
         title: title,
         body: body,

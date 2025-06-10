@@ -1,11 +1,9 @@
-import { UsersService } from "../services/userService";
+import { services } from "../services/services";
 import type { User } from "../interfaces/User";
 import { HtmlRenderer } from "../utils/html";
 
-const usersService = new UsersService();
-
 export async function usersTemplate(): Promise<void> {
-    const users = await usersService.getAll();
+    const users = await services.usersService.getAll();
 
     const template = `
     <h1>Users</h1>
