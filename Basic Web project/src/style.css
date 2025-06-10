@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-p, h3, h1 {
+p, h3, h1, label {
   color: white;
 }
 
