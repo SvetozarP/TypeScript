@@ -1,0 +1,5 @@
+I had to remove the extensions from the imports in order for them to be recognised by TS.
+
+import { decorator5 } from "../decorators.js"; -> import { decorator5 } from "../decorators";
+
+I had runtime error on the imports with .js extensions.
